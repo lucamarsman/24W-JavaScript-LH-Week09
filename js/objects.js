@@ -2,6 +2,28 @@ const output = document.getElementById('output');
 
 /* STEP 1: Create an object (looks a lot like declaring a variable, but with empty braces), 
 then open this page in a browser and enter 'person' in the console */
+let person = {
+    name: {
+        firstName: "Priyansh",
+        lastName: "Thakar"
+    },
+    age: 80,
+    gender: "Male",
+    address: {
+        streetNo: 100,
+        streetName: "Georgian Drive",
+        city: "Barrie"
+    },
+    interests: ["painting", "swimming", "coding"],
+    greeting: function () {
+        alert(`Hello, ${this.name.firstName} ${this["name"]["lastName"]} How are you?`);
+    },
+    bio: function () {
+        return `The interests of ${this.name.firstName}, of age ${this.age}, of gender ${this.gender} are ${this.interests}.`;
+        // return "The interests of " + this.name.firstName + ", of age";
+    },
+    1234: "asas",
+};
 
 /* STEP 2a: Add other data items to the above object, like name, age, gender, address, and interests */
 
@@ -33,18 +55,25 @@ the string, instead of the alert(). */
 Note how this breaks the greeting and bio functions - update the greeting function to use this sub-namespace */
 
 /* STEP 6b: Now fix the bio() function to use the sub-namespace of 'name' as well */
-
+output.textContent = person.bio();
 /* STEP 7: You can also use bracket notation, just like an array - 
 objects that are built this way are often referred to as associative arrays */
 
 /* STEP 8: You can also set members of an object - try changing the person's name, and age */
-
+person.name.firstName = "Robert";
 
 /* STEP 9a: It it also possible to add new members to an object - include eye color - and type person.eyes in the console */
+person.eyeColor = "green";
 
 /* STEP 9b: Add a new function called 'goodbye' to the person object and try it by typing person.goodbye into the console */
+person.goodbye = function () {
+    alert(`This is ${this.name.firstName} signing off!`);
+}
 
 /* STEP 10: We can also dynamically set both names and values for objects… */
+let key = "hairColor";
+let value = "black";
+person[key] = value;
 
 /* STEP 11a: 'this' is very useful - it allows us to refer to the object in question, specifically. 
 This will become much clearer later in the course. Create two new objects, 
@@ -52,6 +81,19 @@ each with a name, and a function that outputs the name */
 
 /* STEP 11b: Call up both person1.hello() and person2.hello() 
 in the console to see how 'this' is specific to each object */
+let person1 = {
+    name: "P1",
+    hello: function () {
+        alert(`Hello from ${this.name}`);
+    }
+}
+
+let person2 = {
+    name: "P2",
+    hello: function () {
+        alert(`Hello from ${this.name}`);
+    }
+}
 
 // You have already been using objects all along:
 let myString = 'Words, words, words.'; // this creates an instance of the class String
