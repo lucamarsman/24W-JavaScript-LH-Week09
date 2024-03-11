@@ -72,5 +72,19 @@ console.log(anotherCar.brand);
 */
 // add some extra if you want
 // Make sure that the function allows for the output of a sentence that describes the hamburger, too
+function Hamburger(bun, garnishes, cheeses, sauces, patties) {
+    this.bun = bun;
+    this.garnishes = [...garnishes];
+    this.cheeses = [...cheeses];
+    this.sauces = [...sauces];
+    this.patties = [...patties];
+    this.printInfo = function () {
+        return "This burger has a " + this.bun + " bun, " + this.garnishes.length + " garnish/garnishes including " + this.garnishes.toString() + ". This burger has " + this.cheeses.length + " cheeses including " + this.cheeses.toString() + ". This burger has " + this.sauces.length + " sauces including " + this.sauces.toString() + ". Finally, this burger has " + this.patties.length + " patty/patties including " + this.patties.toString() + ".";
+    };
+}
+
+let burger = new Hamburger("pretzel", ["cucumber"], ["Mozzarella", "Swiss"], ["Mayo", "Chipotle", "Ketchup", "Mustard"], ["Chicken", "Beef"]);
+console.log(burger.printInfo());
+
 
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
